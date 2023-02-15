@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showRibbon = false
+    
     init() {
         UITabBar.appearance().backgroundColor = .white
     }
-    
-    @State private var showRibbon = false
 
     var body: some View {
         NavigationView {
@@ -64,14 +64,15 @@ struct ContentView: View {
                         HStack {
                             Text("Emergency contact created Successfully")
                                 .foregroundColor(.white)
-                                .padding(.leading, 5)
+                                .padding(.leading, 10)
                             Spacer()
                             Image(systemName: "checkmark")
                                 .foregroundColor(.green)
-                                .padding(.trailing, 5)
+                                .padding(.trailing, 10)
                             })
-                            .padding(.leading, 5)
-                            .padding(.trailing, 5)
+                            .cornerRadius(5)
+                            .padding(.leading, 10)
+                            .padding(.trailing, 10)
                             .animation(.easeInOut(duration: 5))
                         }
                 }

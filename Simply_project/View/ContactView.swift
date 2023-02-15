@@ -21,18 +21,6 @@ struct BackButton: View {
 }
 
 struct ContactView: View, Hashable {
-    func hash(into hasher: inout Hasher) {
-    }
-    
-    static func == (lhs: ContactView, rhs: ContactView) -> Bool {
-        if lhs.firstName == rhs.firstName && lhs.lastName == rhs.lastName && lhs.phoneNumber == rhs.phoneNumber
-            && lhs.contactId == rhs.contactId {
-            return true
-        } else {
-            return false
-        }
-    }
-
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var phoneNumber = ""
@@ -58,21 +46,34 @@ struct ContactView: View, Hashable {
         self.isNewContact = isNewContact
     }
     
-    var buttonIsDisabled: Bool {
+    private var buttonIsDisabled: Bool {
         return firstName.isEmpty || lastName.isEmpty || phoneNumber.isEmpty
         }
     
-    var buttonColor: Color {
+    private var buttonColor: Color {
         selected ? Color(red: 29/255, green: 104/255, blue: 150.255, opacity: 0.8) :
         (buttonIsDisabled ? Color(red: 64/255, green: 160/255, blue: 218/255, opacity: 0.25) :
         Color(red: 64/255, green: 160/255, blue: 218/255))
     }
     
+    private let viewModel = ContactViewModel()
+    
     private func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }
     
-    let viewModel = ContactViewModel()
+    func hash(into hasher: inout Hasher) {
+    }
+    
+    static func == (lhs: ContactView, rhs: ContactView) -> Bool {
+        if lhs.firstName == rhs.firstName && lhs.lastName == rhs.lastName && lhs.phoneNumber == rhs.phoneNumber
+            && lhs.contactId == rhs.contactId {
+            return true
+        } else {
+            return false
+        }
+    }
+
     
     var body: some View {
             VStack(alignment: .leading) {

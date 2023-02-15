@@ -8,15 +8,6 @@
 import Foundation
 
 class ContactModel: Encodable, Decodable, Equatable {
-    static func == (lhs: ContactModel, rhs: ContactModel) -> Bool {
-        if lhs.id == rhs.id && lhs.firstName == rhs.firstName &&
-            lhs.lastName == rhs.lastName && lhs.phoneNumber == rhs.phoneNumber {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     var id: Int
     var firstName: String
     var lastName: String
@@ -27,5 +18,14 @@ class ContactModel: Encodable, Decodable, Equatable {
         self.firstName = firstName
         self.lastName = lastName
         self.phoneNumber = phoneNumber
+    }
+    
+    static func == (lhs: ContactModel, rhs: ContactModel) -> Bool {
+        if lhs.id == rhs.id && lhs.firstName == rhs.firstName &&
+            lhs.lastName == rhs.lastName && lhs.phoneNumber == rhs.phoneNumber {
+            return true
+        } else {
+            return false
+        }
     }
 }
