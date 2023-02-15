@@ -126,6 +126,7 @@ struct ContactView: View, Hashable {
                         self.dismiss()
                     }) {
                         Text("SAVE")
+                            .frame(maxWidth: .infinity)
                     }
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: .infinity)
@@ -151,6 +152,7 @@ struct ContactView: View, Hashable {
                                 self.dismiss()
                             }) {
                                 Text("SAVE")
+                                    .frame(maxWidth: .infinity)
                             }
                         
                         .foregroundColor(.white)
@@ -166,6 +168,7 @@ struct ContactView: View, Hashable {
                             self.dismiss()
                         }) {
                             Text("DELETE CONTACT")
+                                .frame(maxWidth: .infinity)
                         }
                         .foregroundColor(.blue)
                         .frame(minWidth: 0, maxWidth: .infinity)

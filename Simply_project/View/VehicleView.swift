@@ -84,6 +84,7 @@ struct VehicleView: View {
                 NavigationLink(destination: ContactView(id: Int(arc4random()), isNewContact: true, completion:
                                                             completionClosure)) {
                     Text("+ ADD A CONTACT")
+                        .frame(maxWidth: .infinity)
                 }
             }
             .frame(height: 40)
